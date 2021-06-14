@@ -14,4 +14,8 @@
 	sudo apt install netcat
 	sudo apt install scrub
 	sudo apt install shred
-	sudo apt install bat  >> replace batcat by bat if you are on Debian or Ubuntu
+	sudo apt install bat 
+	
+Replace `batcat` by `bat` if you are on Debian or Ubuntu:
+
+![](https://i.imgur.com/zOa0MX7.png)
