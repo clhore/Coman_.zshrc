@@ -26,14 +26,14 @@ function pcapc(){
 # Recepcion de archivos y directorios
 
 		if [ "$2" = "f" ] || [ "$2" = "F" ]; then
-			ifconfig ens33 | grep "inet " | awk '{print $2}' > /home/ad5ian/.recursos_zsh/envio_recpcion_file_and_directory/ipV4.txt
-			echo ">> nc -N $(python3 /home/ad5ian/.recursos_zsh/envio_recpcion_file_and_directory/mIp.py) 44444 < /[ FILE ]"
+			ifconfig ens33 | grep "inet " | awk '{print $2}' > /home/ad5ian/.recursos_zsh/pcapc/ipV4.txt
+			echo ">> nc -N $(python3 /home/ad5ian/.recursos_zsh/pcapc/mIp.py) 44444 < /[ FILE ]"
 
 			nc -lvp 44444 > $3
 
 		elif [ "$2" = "d" ] || [ "$2" = "D" ]; then
-			ifconfig ens33 | grep "inet " | awk '{print $2}' > /home/ad5ian/.recursos_zsh/envio_recpcion_file_and_directory/ipV4.txt
-			echo ">> tar czp [ DIRECTORIO ]/ | nc -N $(python3 /home/ad5ian/.recursos_zsh/envio_recpcion_file_and_directory/mIp.py) 44444"
+			ifconfig ens33 | grep "inet " | awk '{print $2}' > /home/ad5ian/.recursos_zsh/pcapc/ipV4.txt
+			echo ">> tar czp [ DIRECTORIO ]/ | nc -N $(python3 /home/ad5ian/.recursos_zsh/pcapc/mIp.py) 44444"
 		
 			nc -lvp 44444 | tar zxv 
 	
