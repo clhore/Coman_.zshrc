@@ -8,10 +8,13 @@
 
    	sudo pacman -Syy
    	sudo pacman -S netcat 
-    	yay -S scrub
  	sudo pacman -S bat
 	sudo pacman -S python3
 	sudo pacman -S git
+	sudo pacman -S rofi
+	sudo pacman -S dmenu
+	yay -S scrub
+	sudo snap install nvim --classic
 	
 Edit file `.zshrc`
 
@@ -43,6 +46,9 @@ Remplace file `.zshrc`:
 	sudo apt install bat 
 	sudo apt install python3
 	sudo apt install git
+	sudo apt install dmenu
+	sudo apt install rofi
+	sudo apt install neovim
 
 Edit file `.zshrc`
 
