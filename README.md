@@ -1,5 +1,4 @@
 # Coman_.zshrc
- 
 
 #             Install
 
@@ -21,6 +20,8 @@ Edit file
 Replace `'ad5ian'` with your username:
 
 ![](https://i.imgur.com/6kw0uBV.png)
+	
+Remplace file `.zshrc`:
 	
 	cd ~
 	rm -rf .zshrc
