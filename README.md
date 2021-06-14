@@ -3,6 +3,9 @@
 #             Install
 
 # - Archlinux 
+
+--> Install dependencies in Archlinux:
+
    	sudo pacman -Syy
    	sudo pacman -S netcat 
     	yay -S scrub
@@ -10,7 +13,7 @@
 	sudo pacman -S python3
 	sudo pacman -S git
 	
-Edit file
+Edit file `.zshrc`
 
 	cd ~
 	git clone https://github.com/clhore/Coman_zshrc.git
@@ -30,6 +33,9 @@ Remplace file `.zshrc`:
 ![](https://i.imgur.com/O8g1nDE.png)
 
 # - Ubuntu/Debian 
+
+--> Install dependencies in Ubuntu/Debian:
+
 	sudo apt upgrade
 	sudo apt install netcat
 	sudo apt install scrub
@@ -38,7 +44,7 @@ Remplace file `.zshrc`:
 	sudo apt install python3
 	sudo apt install git
 
-Edit file
+Edit file `.zshrc`
 
 	cd ~
 	git clone https://github.com/clhore/Coman_zshrc.git
