@@ -1,7 +1,7 @@
 #!/bin/python3
 
 # Abrimos los archivos con los que vamos a trabajar
-zshrc = open('./.zshrc', 'r+')
+zshrc = open('./.zshrc', 'r')
 user = open('./user', 'r+')
 
 
@@ -23,16 +23,16 @@ R_zsh = R_zsh.replace('ad5ian', R_user)
 
 
 # Borramos el contenido del viejo archivo
-zshrc.truncate(0)
 user.truncate(0)
-
+zshrc.close()
 
 # Escrivimos el archivo con los parametros correctos
+zshrc = open('./.zshrc', 'w')
 zshrc.write(R_zsh)
 
 
 # Numero de veces que aparece el nombre del usuario introducido en el archivo creado
-nv_F = R_zsh.count('BELEN')
+nv_F = R_zsh.count(R_user)
 
 
 # Si el numero nv_I y el nv_F no son iguales nos mandara un error por consola
