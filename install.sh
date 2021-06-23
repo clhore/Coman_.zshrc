@@ -133,7 +133,7 @@ function dependencies(){
 	tput civis
 
 	if [ "$ursSistem" == "arch" ]; then
-		dependencies=(python3 dmenu rofi bat netcat zip)
+		dependencies=(python3 dmenu rofi bat netcat unzip)
 		
 		dependenciesYay=(scrub)
 
