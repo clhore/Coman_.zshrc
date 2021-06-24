@@ -39,6 +39,7 @@ function helpMenu(){
 	clear
 	echo -e "\n${redColour}[*]${endColour} ${yellowColour}Ejecute el comando${endColour} ${greenColour}bash ./install.sh${endColour}\n"
 	echo -e "\t${greenColour}[*]${endColour} Como usuario no ${redColour}root${endColour}"
+	echo -e "\t${greenColour}[*]${endColour} Y como usuario ${redColour}root${endColour}"
 	echo -e "\t${greenColour}[*]${endColour} Asegurese que el repositorio se a clonado en el usuario no ${redColour}root${endColour} en el directorio ${greenColour}cd ~${endColour}"
 	echo -e "\t${greenColour}[*]${endColour} Siga todos los pasos que le indique el escript"
 	sleep 2
@@ -49,7 +50,9 @@ function helpMenu(){
 function p10kIntall(){
 	if [ "$ursSistem" == "arch" ]; then
 		yay -S --noconfirm zsh-theme-powerlevel10k-git
-		echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+		sleep 1
+		cd /home/"$userName"/
+		cp ./Coman_zshrc/.p10k.zsh .
 	elif [ "$ursSistem" == "ubuntu" ]; then
                 echo "esto es ubuntu"
         else
@@ -136,10 +139,8 @@ function dependencies(){
 		dependencies=(python3 dmenu rofi bat netcat unzip)
 		
 		dependenciesYay=(scrub)
-
+		
 		dependenciesSnap=(nvim)
-
-		dependenciesp10K=(.p10k.zsh)
 
 		echo -e "\t${yellowColour}[*]${endColour}${grayColour} Comprobando programas necesarios...${endColour}"
 		sleep 2
@@ -186,22 +187,6 @@ function dependencies(){
                                 sudo snap install $program --classic
                         fi; sleep 1
                 done
-		
-		for program in "${dependenciesp10K[@]}"; do
-
-                        echo -ne "\n\t${yellowColour}[*]${endColour}${blueColour} Herramienta${endColour}${purpleColour} $program${endColour}${blueColour}...${endColour}"
-
-                        test -f /home/"$userName"/$program
-
-                        if [ "$(echo $?)" == "0" ]; then
-                                echo -e " ${greenColour}(V)${endColour}"
-                        else
-                                echo -e " ${redColour}(X)${endColour}\n"
-                                echo -e "\t${yellowColour}[*]${endColour}${grayColour} Instalando herramienta ${endColour}${blueColour}$program${endColour}${yellowColour}...${endColour}"
-                                p10kIntall
-                        fi; sleep 1
-                done
-
 
 	elif [ "$ursSistem" == "ubuntu" ]; then
 		echo "esto es ubuntu"
@@ -211,19 +196,19 @@ function dependencies(){
 }
 
 # Main Function
+dSytem
+
+read -p "Introduce your UserName: " userName
+
+read -p "Select your sistem [l]ArchLinux [u]Ubuntu [l/u] " vSistem
 
 if [ "$(id -u)" != "0" ]; then
+	p10kIntall
 	clear
 	helpMenu
 else
 	clear
-	dSytem
-
-	read -p "Introduce your UserName: " userName
 	
-	read -p "Select your sistem [l]ArchLinux [u]Ubuntu [l/u] " vSistem
-	
-
 	if [ "$vSistem" == "l" ] || [ "$vSistem" == "L" ]; then
 		echo -e "\n\t${greenColour}[*]${endColour} ${yellowColour}Start install${endColour}\n"
 		
